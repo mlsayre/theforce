@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @jedi.name %>
+</p>
+
+<p>
+  <b>Padawans:</b>
+  <% @jedi.padawans.each do|padawan| %>
+  <%= padawan.id %><br />
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_jedi_path(@jedi) %> |
+<%= link_to 'Back', jedis_path %>
