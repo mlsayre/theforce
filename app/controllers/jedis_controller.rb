@@ -14,7 +14,8 @@ class JedisController < ApplicationController
   # GET /jedis/1.json
   def show
     @jedi = Jedi.find(params[:id])
-    @jedi = Jedi.includes(:padawans).find(params[:])
+    @jedi = Jedi.includes(:apprenticeships).find(params[:id])
+
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,11 +37,11 @@ class JedisController < ApplicationController
   def addpadawan
     @jedi = Jedi.find(params[:id])
     @padawan = Padawan.new(params[:padawan])
-    #@apprenticeship = Apprenticeship.new(:jedi_id => @jedi.id, :padawan_id => @padawan.id)
+    @apprenticeship = Apprenticeship.new(:jedi_id => @jedi.id, :padawan_id => @padawan.id)
 
 
     respond_to do |format|
-      #@apprenticeship.save
+      @apprenticeship.save
       format.html # new.html.erb
       format.json { render json: @jedi }
     end

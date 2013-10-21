@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <b>Padawans:</b>
-  <% @jedi.padawans.each do|padawan| %>
+  <b>Padawan IDs:</b><br />
+  <% @jedi.apprenticeships.each do|padawan| %>
   <%= padawan.id %><br />
   <% end %>
 </p>
